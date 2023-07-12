@@ -1,0 +1,146 @@
+[
+  {
+    "Name": "Sneakers Adidas Campus 00S Blue GY9473",
+    "Description": "The adidas Campus 00s Blue GY9473 trainers are an iconic men's model for spring and autumn. It was invented almost four decades ago as a versatile tennis outfit. Nowadays, it is a style staple when we want to combine a more formal style with a sporty one. The upper of the presented model is made of quality suede in an interesting soft blue colour, which is interspersed with white leather in the form of three serrated adidas stripes. The whole set is on a flat sole with a clear tread, which is responsible for traction. Its slightly creamy colour is reminiscent of a vintage style.",
+    "Price": 140,
+    "PictureUrl": "images/products/adidas-campus-00s-blue-gy9473.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Sneakers Puma 180 Reflective Grey",
+    "Description": "For the PUMA-180, we're tapping into the '90s skate aesthetic and revamping it for today's generation. This sneaker reps a chunky design, thick padding, and a lo-fi technical upper with a reflective look.",
+    "Price": 120,
+    "PictureUrl": "images/products/puma-180-reflective-grey.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 4
+  },
+  {
+    "Name": "Sneakers New Balance 610 Sneaker Grey ML610TBF",
+    "Description": "Stylish design in the style of the 2000s. The C-CAP cushioning provides support for the foot, while the synthetic and mesh upper of these sneakers provide versatility and comfort.",
+    "Price": 114,
+    "PictureUrl": "images/products/new-balance-610-Grey-ML610TBF.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 2
+  },
+  {
+    "Name": "Sneakers Adidas Niteball Valged tossud FZ5938",
+    "Description": "If you want to make an impression, the place to start is on the basketball court. That's where we found the inspiration for these adidas Niteball sneakers. The bold layered silhouette captures the energy of a dynamic game. At the same time, the soft Lightstrike outsole gives comfort with every step. The model is made from recycled materials as part of our commitment to reduce plastic waste. 20% of the upper elements are at least 50% recycled.",
+    "Price": 163,
+    "PictureUrl": "images/products/adidas-niteball-valged-tossud-fz5938.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Sneakers New Balance 1906R Beige M1906Dc",
+    "Description": "The iconic New Balance 1906R men's running shoe is back in a new style. Inspired by the running shoe design of the 2000s, this classic shoe continues to be a staple in the running world. Its cushioning N-ergy midsole features Stability Web for added arch support, while the ACTEVA LITE midsole and ABZORB SBS heel cushioning provide comfort and stability. With the classic 1906R, you get a stylish running shoe with excellent performance.",
+    "Price": 220,
+    "PictureUrl": "images/products/New-Balance-1906R-Beige-M1906Dc.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 2
+  },
+  {
+    "Name": "Sneakers Adidas Originals Adifom Quake White Gy4455",
+    "Description": "The adidas Adifom Q Shoes don't hold back. They raise the bar on comfort, and evolve a '90s design with daring style. From the foam exoskeleton to the Adiplus drop-ins and bootee inner, every detail is designed to make your feet feel good. Whatever you're planning to do in them, don't hold back.",
+    "Price": 70,
+    "PictureUrl": "images/products/sb-ts1.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Slippers Adidas Adilette 22 Slides Beige Gx6950",
+    "Description": "These adidas Adilette Slides answer the question, \"What would slides look like in space?\" Inspired by 3D topography and human expeditions to Mars, they defy gravity with futuristic design details. The contoured footbed and soft rubber outsole ensure maximum comfort whether you're hitting the showers or the streets. These Adilette slides are made with natural and renewable materials as part of our journey to design out finite resources and help end plastic waste.",
+    "Price": 33,
+    "PictureUrl": "images/products/Adidas-Adilette-22-Slides-Beige-Gx6950.png",
+    "ProductTypeId": 2,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Slippers Nike Victori One Slide White CN9675-100",
+    "Description": "From the beach to the bleachers, the Nike Victori One perfects a classic, must have design. Delivering lightweight comfort that’s easy to wear, it's updated with softer, more responsive foam. The contoured grip pattern helps cradle and hold your foot in place while the new padded strap feels as good as it looks.",
+    "Price": 35,
+    "PictureUrl": "images/products/Nike-Victori-One-Slide-White-CN9675-100.png",
+    "ProductTypeId": 2,
+    "ProductBrandId": 3
+  },
+  {
+    "Name": "Slippers Crocs Echo Clog Shoes Camo 208454-238",
+    "Description": "The Echo collection is for those who want comfort without compromising on their looks. This fully moulded clog is anything but conformist, with a bold shape and sporty inspiration that keeps street style at its core.",
+    "Price": 65,
+    "PictureUrl": "images/products/Crocs-Echo-Clog-Shoes-Camo-208454-238.png",
+    "ProductTypeId": 2,
+    "ProductBrandId": 8
+  },
+  {
+    "Name": "Slippers Nike Offline 2.0 Grey CZ0332-002",
+    "Description": "In the Nike Offline 2.0 slippers, you can relax and unwind. The micro-beaded footbed creates a gentle texture that massages your feet and features a cushioning upper that resembles the inside of a sneaker, a soft and airy outsole with anatomical properties. The cork and rubber heel contrasts with the technical upper, giving you a modern look. You can do nothing but feel comfortable.",
+    "Price": 140,
+    "PictureUrl": "images/products/Nike_Offline_2.0_Grey_CZ0332-002.png",
+    "ProductTypeId": 2,
+    "ProductBrandId": 3
+  },
+  {
+    "Name": "Slippers Adidas Adilette 22 Slides Carbon Aluminum Black/Grey Gx6947",
+    "Description": "These adidas Adilette Slides answer the question, \"What would slides look like in space?\" Inspired by 3D topography and human expeditions to Mars, they defy gravity with futuristic design details. The contoured footbed and soft rubber outsole ensure maximum comfort whether you're hitting the showers or the streets. These Adilette slides are made with natural and renewable materials as part of our journey to design out finite resources and help end plastic waste.",
+    "Price": 15,
+    "PictureUrl": "images/products/Adidas-Adilette-22-Slides-Carbon-Aluminum-Black-Grey-Gx6947.png",
+    "ProductTypeId": 2,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Boots Native Fitzsimmons Citylite Bloom Grey 31106848-1233",
+    "Description": "Native's FITZSIMMONS are a harmonious combination of functionality and elegant design. These boots will be a reliable companion for your daily adventures and outdoor activities.",
+    "Price": 72,
+    "PictureUrl": "images/products/Native-Fitzsimmons-Citylite-Bloom-Grey-31106848-1233.png",
+    "ProductTypeId": 3,
+    "ProductBrandId": 5
+  },
+  {
+    "Name": "Boots Salomon X Bgs Xa Pro 3D Mid Beige L47170700",
+    "Description": "Crafted in collaboration with Toronto-based store Better™ Gift Shop, this GORE-TEX™ treated take on the XA Pro 3D Mid features a bonded mesh upper layered with crisp tan nubuck. A sturdy rubber cap rests on the toe box while a matching swatch of mocha nubuck wraps the heel. A quick lace hiking system tracks down the tongue while co-branding wraps the ankle collar. Underfoot we find a dual-density Agile Chassis™ System for unrivaled stability while a thick lugged Contagrip™ outsole brings traction.",
+    "Price": 170,
+    "PictureUrl": "images/products/Salomon-X-Bgs-Xa-Pro-3D-Mid-Beige-L47170700.png",
+    "ProductTypeId": 3,
+    "ProductBrandId": 6
+  },
+  {
+    "Name": "Boots Nike Acg Zoom Gaiadome Gore-Tex must Dd2858-001",
+    "Description": "Meet winter with dignity in the gorgeous Nike ACG Zoom Gaiadome Gore-Tex boots! These stylish beauties will provide protection from unpredictable weather conditions while keeping your feet warm.",
+    "Price": 250,
+    "PictureUrl": "images/products/Nike-Acg-Zoom-Gaiadome-Gore-Tex-must-Dd2858-001.png",
+    "ProductTypeId": 3,
+    "ProductBrandId": 3
+  },
+  {
+    "Name": "Boots Nike Acg Air Zoom Gaiadome Gore-Tex Trails End Brown",
+    "Description": "these boots will take you places. Forged from heavy-duty materials like waterproof GORE-TEX fabric, you'll be shouting, \"Rain, rain, come and play\". Large lugs finely tuned for steep mountain slopes will have you scrambling where you probably shouldn't be. Zoom Air cushioning brings the comfort. And the durable Trailframe underfoot adds stability on a variety of terrains while reinforcing high-impact areas. Simply put, they're ready for whatever you want to do out there—hiking, backpacking or just walking across the street.",
+    "Price": 189,
+    "PictureUrl": "images/products/boot-core2.png",
+    "ProductTypeId": 3,
+    "ProductBrandId": 3
+  },
+  {
+    "Name": "Sandals Nike Oneonta Be True Multi Dr4870-600",
+    "Description": "Reinvent what it means to be you. Celebrating the LGBTQIA+ community, these lightweight, durable sandals are ready for your next adventure. Gradient branding and colorful straps pair with paint-speckled, rugged tread and plush cushioning so you can go from streets to trails without pause.",
+    "Price": 199,
+    "PictureUrl": "images/products/Nike-Oneonta-Be-True-Multi-Dr4870-600.png",
+    "ProductTypeId": 4,
+    "ProductBrandId": 3
+  },
+  {
+    "Name": "Sandals Nike Oneonta Nn Sandal Olive FB1948-201",
+    "Description": "From trails to rivers and trees, these lightweight, durable sandals are ready to make adventuring fun, with special thanks to their rugged tread. The Oneonta name honours the majestic falls that flow near the Columbia River in Oregon (Nike's home state). Strap in and quickly personalise your fit with an elastic cord and tighten on the heel—then get wilding.",
+    "Price": 98,
+    "PictureUrl": "images/products/Nike-Oneonta-Nn-Sandal-Olive-FB1948-201.png",
+    "ProductTypeId": 4,
+    "ProductBrandId": 3
+  },
+  {
+    "Name": "Sandals Puma Traek Lite Beige 389075-03",
+    "Description": "Spend a sunny day out in the Softride Pure sandals, made from our renowned Softride foam and complete with a secure ankle strap.",
+    "Price": 60,
+    "PictureUrl": "images/products/Puma-Traek-Lite-Beige-389075-03.png",
+    "ProductTypeId": 4,
+    "ProductBrandId": 4
+  }
+]

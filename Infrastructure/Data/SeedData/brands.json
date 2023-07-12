@@ -1,0 +1,38 @@
+[
+  {
+    "Id": 1,
+    "Name": "Adidas"
+  },
+  {
+    "Id": 2,
+    "Name": "New Balance"
+  },
+  {
+    "Id": 3,
+    "Name": "Nike"
+  },
+  {
+    "Id": 4,
+    "Name": "Puma"
+  },
+  {
+    "Id": 5,
+    "Name": "Native"
+  },
+  {
+    "Id": 6,
+    "Name": "Salomon"
+  },
+  {
+    "Id": 7,
+    "Name": "Asics"
+  },
+  {
+    "Id": 8,
+    "Name": "Air Jordan"
+  },
+  {
+    "Id": 9,
+    "Name": "Crocs"
+  }
+]
