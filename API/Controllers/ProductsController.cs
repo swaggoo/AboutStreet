@@ -6,6 +6,8 @@ using API.DTOs;
 using System.Collections.Immutable;
 using AutoMapper;
 using API.Errors;
+using API.Helpers;
+using Microsoft.Extensions.Logging;
 
 namespace API.Controllers;
 
@@ -29,14 +31,22 @@ public class ProductsController : BaseApiController
     }
 
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts(string sort)
+    public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts(
+        [FromQuery]ProductSpecParams productSpecParams)
     {
-        var spec = new ProductsWithTypesAndBrandsSpecification(sort);
+        var spec = new ProductsWithTypesAndBrandsSpecification(productSpecParams);
+
+        var countSpec = new ProductWithFiltersForCountSpecification(productSpecParams);
+
+        var totalItems = await _productsRepo.CountAsync(countSpec);
 
         var products = await _productsRepo.ListAsync(spec);
+        
+        var data = _mapper
+            .Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
 
-        return Ok(_mapper
-            .Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products));
+        return Ok(new Pagination<ProductToReturnDto>(productSpecParams.PageNumber, 
+            productSpecParams.PageSize, totalItems, data));
     }
 
     [HttpGet("{id}")]
