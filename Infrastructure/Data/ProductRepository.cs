@@ -12,13 +12,14 @@ public class ProductRepository : IProductRepository
         _context = context;
     }
 
-    public async Task<IReadOnlyList<Product>> GetProductListAsync()
+    public async Task<IReadOnlyList<Product>> GetProductsAsync()
     {
         return await _context.Products
             .Include(p => p.ProductBrand)
             .Include(p => p.ProductType)
             .ToListAsync();
     }
+
     public async Task<Product> GetProductByIdAsync(int id)
     {
         return await _context.Products
