@@ -8,7 +8,7 @@ using AutoMapper;
 
 namespace API.Controllers;
 
-public class ProductsController : BaseController
+public class ProductsController : BaseApiController
 {
     private readonly IGenericRepository<Product> _productsRepo;
     private readonly IGenericRepository<ProductBrand> _productBrandRepo;
