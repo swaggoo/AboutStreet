@@ -1,0 +1,11 @@
+<header *ngIf="totalCount && pageNumber && pageSize">
+    <span *ngIf="totalCount > 0"
+      >Showing
+      {{ (pageNumber - 1) * pageSize + 1 }} -
+      {{ pageNumber * pageSize 
+        > totalCount ? totalCount : pageNumber * pageSize
+      }} of
+      <a href="#">{{totalCount}}</a> Results</span
+    >
+    <span *ngIf="totalCount === 0">Showing <a href="#">0</a> Results</span>
+  </header>
