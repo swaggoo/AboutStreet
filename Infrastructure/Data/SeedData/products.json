@@ -51,7 +51,7 @@
     "Name": "Slippers Adidas Adilette 22 Slides Beige Gx6950",
     "Description": "These adidas Adilette Slides answer the question, \"What would slides look like in space?\" Inspired by 3D topography and human expeditions to Mars, they defy gravity with futuristic design details. The contoured footbed and soft rubber outsole ensure maximum comfort whether you're hitting the showers or the streets. These Adilette slides are made with natural and renewable materials as part of our journey to design out finite resources and help end plastic waste.",
     "Price": 33,
-    "PictureUrl": "images/products/Adidas-Adilette-22-Slides-Beige-Gx6950.png",
+    "PictureUrl": "images/products/Adidas-Adilette-22-Slides-Beige-gx6950.png",
     "ProductTypeId": 2,
     "ProductBrandId": 1
   },
@@ -97,7 +97,7 @@
   },
   {
     "Name": "Boots Salomon X Bgs Xa Pro 3D Mid Beige L47170700",
-    "Description": "Crafted in collaboration with Toronto-based store Better™ Gift Shop, this GORE-TEX™ treated take on the XA Pro 3D Mid features a bonded mesh upper layered with crisp tan nubuck. A sturdy rubber cap rests on the toe box while a matching swatch of mocha nubuck wraps the heel. A quick lace hiking system tracks down the tongue while co-branding wraps the ankle collar. Underfoot we find a dual-density Agile Chassis™ System for unrivaled stability while a thick lugged Contagrip™ outsole brings traction.",
+    "Description": "Crafted in collaboration with Toronto-based store Better™ Gift Shop, this GORE-TEX™ treated take on the XA Pro 3D Mid features a bonded mesh upper layered with crisp tan nubuck. A sturdy rubber cap rests on the toe box while a matching swatch of mocha nubuck wraps the heel.",
     "Price": 170,
     "PictureUrl": "images/products/Salomon-X-Bgs-Xa-Pro-3D-Mid-Beige-L47170700.png",
     "ProductTypeId": 3,
@@ -113,7 +113,7 @@
   },
   {
     "Name": "Boots Nike Acg Air Zoom Gaiadome Gore-Tex Trails End Brown",
-    "Description": "these boots will take you places. Forged from heavy-duty materials like waterproof GORE-TEX fabric, you'll be shouting, \"Rain, rain, come and play\". Large lugs finely tuned for steep mountain slopes will have you scrambling where you probably shouldn't be. Zoom Air cushioning brings the comfort. And the durable Trailframe underfoot adds stability on a variety of terrains while reinforcing high-impact areas. Simply put, they're ready for whatever you want to do out there—hiking, backpacking or just walking across the street.",
+    "Description": "These boots will take you places. Forged from heavy-duty materials like waterproof GORE-TEX fabric, you'll be shouting, \"Rain, rain, come and play\". Large lugs finely tuned for steep mountain slopes will have you scrambling where you probably shouldn't be.",
     "Price": 189,
     "PictureUrl": "images/products/Nike-Acg-Air-Zoom-Gaiadome-Gore-Tex-Trails-End-Brown.png",
     "ProductTypeId": 3,
@@ -129,7 +129,7 @@
   },
   {
     "Name": "Sandals Nike Oneonta Nn Sandal Olive FB1948-201",
-    "Description": "From trails to rivers and trees, these lightweight, durable sandals are ready to make adventuring fun, with special thanks to their rugged tread. The Oneonta name honours the majestic falls that flow near the Columbia River in Oregon (Nike's home state). Strap in and quickly personalise your fit with an elastic cord and tighten on the heel—then get wilding.",
+    "Description": "From trails to rivers and trees, these lightweight, durable sandals are ready to make adventuring fun, with special thanks to their rugged tread. The Oneonta name honours the majestic falls that flow near the Columbia River in Oregon (Nike's home state).",
     "Price": 98,
     "PictureUrl": "images/products/Nike-Oneonta-Nn-Sandal-Olive-FB1948-201.png",
     "ProductTypeId": 4,

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ShopService } from './shop.service';
 import { Product } from '../shared/models/product';
 import { Brand } from '../shared/models/brand';
@@ -10,7 +10,7 @@ import { ShopParams } from '../shared/models/shopParams';
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss'],
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent implements OnInit, AfterViewInit {
   @ViewChild('search') searchTerm?: ElementRef;
   products: Product[] = [];
   brands: Brand[] = [];
@@ -23,7 +23,12 @@ export class ShopComponent implements OnInit {
   ];
   totalCount = 0;
 
-  constructor(private shopService: ShopService) {}
+  constructor(private shopService: ShopService, private elementRef: ElementRef) {}
+
+  ngAfterViewInit(): void {
+    this.elementRef.nativeElement.ownerDocument
+    .body.style.backgroundColor = '#f8f8f8';
+  }
 
   ngOnInit(): void {
     this.getProducts();
