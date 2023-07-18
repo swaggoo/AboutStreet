@@ -36,7 +36,15 @@
     <section class="col-9">
       <div class="d-flex justify-content-between align-items-center pb-2">
         <header>
-          <span>Showing <strong>10</strong> of <a href="#">18</a> Results</span>
+          <span *ngIf="totalCount > 0"
+            >Showing
+            {{ (shopParams.pageNumber - 1) * shopParams.pageSize + 1 }} -
+            {{ shopParams.pageNumber * shopParams.pageSize 
+              > totalCount ? totalCount : shopParams.pageNumber * shopParams.pageSize
+            }} of
+            <a href="#">{{totalCount}}</a> Results</span
+          >
+          <span *ngIf="totalCount === 0">Showing <a href="#">0</a> Results</span>
         </header>
         <div class="d-flex mt-2">
           <input type="text" placeholder="Search" class="form-control me-2" />
