@@ -19,7 +19,7 @@ export class ShopService {
 
     if (shopParams.brandId > 0) params = params.append('brandId', shopParams.brandId);
     if (shopParams.typeId > 0) params = params.append('typeId', shopParams.typeId);
-    
+    if(shopParams.search.length > 0) params = params.append('search', shopParams.search);
     params = params.append('sort', shopParams.sort);
     
     params = params.append('pageNumber', shopParams.pageNumber);
