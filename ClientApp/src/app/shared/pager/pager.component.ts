@@ -15,10 +15,3 @@ export class PagerComponent {
     this.pageChanged.emit(event.page);
   }
 }
-
-
-const options: ScrollToOptions = {
-  top: 0,
-  behavior: 'smooth'
-};
-window.scrollTo(options);

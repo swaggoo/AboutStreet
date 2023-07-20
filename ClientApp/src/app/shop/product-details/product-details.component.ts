@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/co
 import { ShopService } from '../shop.service';
 import { Product } from 'src/app/shared/models/product';
 import { ActivatedRoute } from '@angular/router';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-product-details',
@@ -14,7 +15,8 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
   constructor(
     private shopService: ShopService,
     private activatedRoute: ActivatedRoute,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private bcService: BreadcrumbService
   ) {}
 
   ngAfterViewInit(): void {
@@ -33,7 +35,8 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
       this.shopService.getProduct(+productId).subscribe({
         next: (product) => {
           this.product = product;
-        },
+          this.bcService.set('@productDetails', product.name);
+        }
       });
     }
   }
