@@ -13,11 +13,11 @@
             </ng-container>
           </xng-breadcrumb>
         </div>
-        <!-- <div class="col-3">
-          <h2>
+        <div class="col-3"  *ngIf="breadcrumbs[breadcrumbs.length - 1].label.length < 20">
+          <h2 class="text-right">
             {{breadcrumbs[breadcrumbs.length - 1].label}}
           </h2>
-        </div> -->
+        </div>
       </div>
     </div>
   </section>
