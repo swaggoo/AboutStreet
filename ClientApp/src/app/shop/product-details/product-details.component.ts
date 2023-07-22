@@ -17,7 +17,9 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
     private activatedRoute: ActivatedRoute,
     private elementRef: ElementRef,
     private bcService: BreadcrumbService
-  ) {}
+  ) {
+    this.bcService.set('@productDetails', ' ')
+  }
 
   ngAfterViewInit(): void {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor =
