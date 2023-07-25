@@ -13,6 +13,7 @@ public class ProductUrlResolver : IValueResolver<Product, ProductToReturnDto, st
         _configuration = configuration;
     }
 
+    //
     public string Resolve(
         Product source, 
         ProductToReturnDto destination, 
@@ -21,6 +22,9 @@ public class ProductUrlResolver : IValueResolver<Product, ProductToReturnDto, st
     {
         if (!string.IsNullOrEmpty(source.PictureUrl))
         {
+            // If PictureUrl has a value, construct the full image URL by
+            // concatenating the "ApiUrl" configuration value and the relative
+            // picture URL from the source product.
             return _configuration["ApiUrl"] + source.PictureUrl;
         }
 
