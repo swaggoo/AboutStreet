@@ -4,7 +4,6 @@ using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
-using System.Runtime.CompilerServices;
 
 namespace API.Extenstions;
 
