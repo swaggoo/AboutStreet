@@ -13,9 +13,6 @@ public static class ApplicationServicesExtensions
     public static IServiceCollection AddApplicationServices(this IServiceCollection services,
         IConfiguration config)
     {
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
         services.AddDbContext<StoreContext>(options =>
         {
             options.UseSqlite(config.GetConnectionString("DefaultConnection"));
