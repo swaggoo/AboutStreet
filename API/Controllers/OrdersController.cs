@@ -37,17 +37,17 @@ public class OrdersController : BaseApiController
     }
 
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<Order>>> GetOrdersForUser()
+    public async Task<ActionResult<IReadOnlyList<OrderToReturnDto>>> GetOrdersForUser()
     {
         var email = User.FindFirstValue(ClaimTypes.Email);
 
         var orders = await _orderService.GetOrdersForUserAsync(email);
 
-        return Ok(orders);
+        return Ok(_mapper.Map<IReadOnlyList<OrderToReturnDto>>(orders));
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Order>> GetOrderForUser(int id)
+    public async Task<ActionResult<OrderToReturnDto>> GetOrderForUser(int id)
     {
         var email = User.FindFirstValue(ClaimTypes.Email);
 
@@ -55,7 +55,7 @@ public class OrdersController : BaseApiController
 
         if (order == null) return NotFound(new ApiResponse(404, "Order was not found"));
 
-        return order;
+        return _mapper.Map<OrderToReturnDto>(order);
     }
 
     [HttpGet("deliveryMethods")]

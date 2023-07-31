@@ -69,7 +69,7 @@ public class ProductsController : BaseApiController
     [HttpGet("brands")]
     public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrands()
     {
-        var brands = await _productBrandRepo.ListAllAsync();
+        var brands = await _productBrandRepo.GetAllAsync();
 
         return Ok(brands);
     }
@@ -77,7 +77,7 @@ public class ProductsController : BaseApiController
     [HttpGet("types")]
     public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
     {
-        var types = await _productTypeRepo.ListAllAsync();
+        var types = await _productTypeRepo.GetAllAsync();
 
         return Ok(types);
     }
