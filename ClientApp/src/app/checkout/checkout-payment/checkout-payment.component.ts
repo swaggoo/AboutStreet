@@ -24,29 +24,32 @@ export class CheckoutPaymentComponent {
 
   submitOrder() {
     const basket = this.basketService.getCurrentBasketValue();
-    if(!basket) return;
+    if (!basket) return;
 
     const orderToCreate = this.getOrderToCreate(basket);
     if (!orderToCreate) return;
     this.checkoutService.createOrder(orderToCreate).subscribe({
-      next: order => {
+      next: (order) => {
         this.toastr.success('Order created successfully');
         this.basketService.deleteLocalBasket();
-        const navigationExtras: NavigationExtras = {state: order};
+        const navigationExtras: NavigationExtras = { state: order };
         this.router.navigate(['checkout/success'], navigationExtras);
-      }
-    })
+      },
+    });
   }
 
   private getOrderToCreate(basket: Basket) {
-    const deliveryMethodId = this.checkoutForm?.get('deliveryForm')?.get('deliveryMethod')?.value;
-    const shipToAddress = this.checkoutForm?.get('addressForm')?.value as Address;
+    const deliveryMethodId = this.checkoutForm
+      ?.get('deliveryForm')
+      ?.get('deliveryMethod')?.value;
+    const shipToAddress = this.checkoutForm?.get('addressForm')
+      ?.value as Address;
     if (!deliveryMethodId || !shipToAddress) return;
 
     return {
       basketId: basket.id,
       deliveryMethodId: deliveryMethodId,
-      shipToAddress: shipToAddress
-    }
+      shipToAddress: shipToAddress,
+    };
   }
 }

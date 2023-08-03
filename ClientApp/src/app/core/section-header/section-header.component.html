@@ -14,7 +14,7 @@
           </xng-breadcrumb>
         </div>
         <div class="col-3 d-flex align-items-center justify-content-end">
-          <h2 class="text-right">
+          <h2 *ngIf="breadcrumbs[breadcrumbs.length - 1].label.length < 20" class="text-right">
             {{breadcrumbs[breadcrumbs.length - 1].label}}
           </h2>
         </div>
