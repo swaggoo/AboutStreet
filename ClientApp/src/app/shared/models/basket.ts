@@ -5,7 +5,7 @@ export interface Basket {
   items: BasketItem[];
   clientSecret?: string;
   paymentIntentId?: string;
-  deliveryMethodId?: string;
+  deliveryMethodId?: number;
 }
 
 export interface BasketItem {
