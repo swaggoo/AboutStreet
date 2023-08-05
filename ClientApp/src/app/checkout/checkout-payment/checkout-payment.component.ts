@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { BasketService } from 'src/app/basket/basket.service';
 import { CheckoutService } from '../checkout.service';
@@ -6,14 +6,29 @@ import { ToastrService } from 'ngx-toastr';
 import { Basket } from 'src/app/shared/models/basket';
 import { Address } from 'src/app/shared/models/address';
 import { NavigationExtras, Router } from '@angular/router';
+import {
+  Stripe,
+  StripeCardCvcElement,
+  StripeCardExpiryElement,
+  StripeCardNumberElement,
+  loadStripe,
+} from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-checkout-payment',
   templateUrl: './checkout-payment.component.html',
   styleUrls: ['./checkout-payment.component.scss'],
 })
-export class CheckoutPaymentComponent {
+export class CheckoutPaymentComponent implements OnInit {
   @Input() checkoutForm?: FormGroup;
+  @ViewChild('cardNumber') cardNumberElement?: ElementRef;
+  @ViewChild('cardExpiry') cardExpiryElement?: ElementRef;
+  @ViewChild('cardCvc') cardCvcElement?: ElementRef;
+  stripe: Stripe | null = null;
+  cardNumber?: StripeCardNumberElement;
+  cardExpiry?: StripeCardExpiryElement;
+  cardCvc?: StripeCardCvcElement;
+  cardErrors: any;
 
   constructor(
     private basketService: BasketService,
@@ -21,6 +36,37 @@ export class CheckoutPaymentComponent {
     private toastr: ToastrService,
     private router: Router
   ) {}
+
+  ngOnInit(): void {
+    loadStripe(
+      'pk_test_51NbNYDI0Wq8MOOYRJGZJQKtqPGV9BfHcH884isa2zLZkqll3yDgR7vkH2mDcuKWMndqB2F7A6sVPWeM7JzpWeCcq00vAE7ykNx'
+    ).then(stripe => {
+      this.stripe = stripe;
+      const elements = stripe?.elements();
+      if (elements) {
+        this.cardNumber = elements.create('cardNumber');
+        this.cardNumber.mount(this.cardNumberElement?.nativeElement);
+        this.cardNumber.on('change', event => {
+          if (event.error) this.cardErrors = event.error.message;
+          else this.cardErrors = null;
+        })
+
+        this.cardExpiry = elements.create('cardExpiry');
+        this.cardExpiry.mount(this.cardExpiryElement?.nativeElement);
+        this.cardExpiry.on('change', event => {
+          if (event.error) this.cardErrors = event.error.message;
+          else this.cardErrors = null;
+        })
+
+        this.cardCvc = elements.create('cardCvc');
+        this.cardCvc.mount(this.cardCvcElement?.nativeElement);
+        this.cardCvc.on('change', event => {
+          if (event.error) this.cardErrors = event.error.message;
+          else this.cardErrors = null;
+        })
+      }
+    });
+  }
 
   submitOrder() {
     const basket = this.basketService.getCurrentBasketValue();
