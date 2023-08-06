@@ -92,8 +92,6 @@ export class CheckoutPaymentComponent implements OnInit {
     }
   }
 
-    
-
   private async confirmPaymentWithStripe(basket: Basket | null) {
     if (!basket) throw new Error('Basket is null');
     const result = this.stripe?.confirmCardPayment(basket.clientSecret!, {
