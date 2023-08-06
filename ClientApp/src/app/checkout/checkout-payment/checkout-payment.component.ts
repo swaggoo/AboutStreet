@@ -30,6 +30,9 @@ export class CheckoutPaymentComponent implements OnInit {
   cardNumber?: StripeCardNumberElement;
   cardExpiry?: StripeCardExpiryElement;
   cardCvc?: StripeCardCvcElement;
+  cardNumberComplete = false;
+  cardExpiryComplete = false;
+  cardCvcComplete = false;
   cardErrors: any;
   loading = false;
 
@@ -43,42 +46,55 @@ export class CheckoutPaymentComponent implements OnInit {
   ngOnInit(): void {
     loadStripe(
       'pk_test_51NbNYDI0Wq8MOOYRJGZJQKtqPGV9BfHcH884isa2zLZkqll3yDgR7vkH2mDcuKWMndqB2F7A6sVPWeM7JzpWeCcq00vAE7ykNx'
-    ).then(stripe => {
+    ).then((stripe) => {
       this.stripe = stripe;
       const elements = stripe?.elements();
       if (elements) {
         this.cardNumber = elements.create('cardNumber');
         this.cardNumber.mount(this.cardNumberElement?.nativeElement);
-        this.cardNumber.on('change', event => {
+        this.cardNumber.on('change', (event) => {
+          this.cardNumberComplete = event.complete;
           if (event.error) this.cardErrors = event.error.message;
           else this.cardErrors = null;
-        })
+        });
 
         this.cardExpiry = elements.create('cardExpiry');
         this.cardExpiry.mount(this.cardExpiryElement?.nativeElement);
-        this.cardExpiry.on('change', event => {
+        this.cardExpiry.on('change', (event) => {
+          this.cardExpiryComplete = event.complete;
           if (event.error) this.cardErrors = event.error.message;
           else this.cardErrors = null;
-        })
+        });
 
         this.cardCvc = elements.create('cardCvc');
         this.cardCvc.mount(this.cardCvcElement?.nativeElement);
-        this.cardCvc.on('change', event => {
+        this.cardCvc.on('change', (event) => {
+          this.cardCvcComplete = event.complete;
           if (event.error) this.cardErrors = event.error.message;
           else this.cardErrors = null;
-        })
+        });
       }
     });
+  }
+
+  get paymentFormComplete() {
+    return (
+      this.checkoutForm?.get('paymentForm')?.valid &&
+      this.cardNumberComplete &&
+      this.cardExpiryComplete &&
+      this.cardCvcComplete
+    );
   }
 
   async submitOrder() {
     this.loading = true;
     const basket = this.basketService.getCurrentBasketValue();
+    if (!basket) throw new Error("Cannon get basket");
     try {
       const createdOrder = await this.createOrder(basket);
       const paymentResult = await this.confirmPaymentWithStripe(basket);
       if (paymentResult.paymentIntent) {
-        this.basketService.deleteLocalBasket();
+        this.basketService.deleteBasket(basket);
         const navigationExtras: NavigationExtras = { state: createdOrder };
         this.router.navigate(['checkout/success'], navigationExtras);
       } else {
@@ -98,9 +114,9 @@ export class CheckoutPaymentComponent implements OnInit {
       payment_method: {
         card: this.cardNumber!,
         billing_details: {
-          name: this.checkoutForm?.get('paymentForm')?.get('nameOnCard')?.value
-        }
-      }
+          name: this.checkoutForm?.get('paymentForm')?.get('nameOnCard')?.value,
+        },
+      },
     });
 
     if (!result) throw new Error('Problem attempting payment with stripe');
@@ -111,16 +127,17 @@ export class CheckoutPaymentComponent implements OnInit {
     if (!basket) throw new Error('Basket is null');
     const orderToCreate = this.getOrderToCreate(basket);
 
-    return firstValueFrom(this.checkoutService.createOrder(orderToCreate))
+    return firstValueFrom(this.checkoutService.createOrder(orderToCreate));
   }
 
-  private getOrderToCreate(basket: Basket) : OrderToCreate{
+  private getOrderToCreate(basket: Basket): OrderToCreate {
     const deliveryMethodId = this.checkoutForm
       ?.get('deliveryForm')
       ?.get('deliveryMethod')?.value;
     const shipToAddress = this.checkoutForm?.get('addressForm')
       ?.value as Address;
-    if (!deliveryMethodId || !shipToAddress) throw new Error('Problem with basket');
+    if (!deliveryMethodId || !shipToAddress)
+      throw new Error('Problem with basket');
 
     return {
       basketId: basket.id,
