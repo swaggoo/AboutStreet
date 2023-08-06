@@ -30,6 +30,8 @@ public class PaymentService : IPaymentService
         // Get the customer basket from the repository based on the provided basketId
         var basket = await _basketRepository.GetBasketAsync(basketId);
 
+        if (basket == null) return null;
+
         // Initialize a variable to store the shipping price
         var shippingPrice = 0m;
 
