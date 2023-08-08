@@ -2,3 +2,23 @@
     border: solid 1px rgb(0, 0, 0, 0.3);
     border-radius: 5px;
 }
+
+.list-group-item {
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+
+    &.active {
+        border-radius: 5px;
+    }
+
+    &:not(.active) {
+        background-color: #F8F8F8;
+    } 
+
+    &:not(.active):hover {
+        color: #000;
+        background-color: rgba($color: #000, $alpha: 0.05);
+        border-radius: 5px;
+    } 
+}

@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.development';
 import { map, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ShopService {
   baseUrl = environment.apiUrl;
@@ -18,31 +18,51 @@ export class ShopService {
   types: Type[] = [];
   pagination?: Pagination<Product[]>;
   shopParams = new ShopParams();
+  productCache = new Map<string, Pagination<Product[]>>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getProducts() {
+  getProducts(useCache = true) {
+    if (!useCache) this.productCache = new Map();
+
+    if (this.productCache.size > 0 && useCache) {
+      if (this.productCache.has(Object.values(this.shopParams).join('-'))) {
+        this.pagination = this.productCache.get(
+          Object.values(this.shopParams).join('-')
+        );
+        if (this.pagination) return of(this.pagination);
+      }
+    }
+
     let params = new HttpParams();
 
-    if (this.shopParams.brandId > 0) params = params.append('brandId', this.shopParams.brandId);
-    if (this.shopParams.typeId > 0) params = params.append('typeId', this.shopParams.typeId);
-    if(this.shopParams.search.length > 0) params = params.append('search', this.shopParams.search);
+    if (this.shopParams.brandId > 0)
+      params = params.append('brandId', this.shopParams.brandId);
+    if (this.shopParams.typeId > 0)
+      params = params.append('typeId', this.shopParams.typeId);
+    if (this.shopParams.search.length > 0)
+      params = params.append('search', this.shopParams.search);
     params = params.append('sort', this.shopParams.sort);
-    
+
     params = params.append('pageNumber', this.shopParams.pageNumber);
     params = params.append('pageSize', this.shopParams.pageSize);
 
-    return this.http.get<Pagination<Product[]>>(this.baseUrl + 'products', {params}).pipe(
-      map(response => {
-        this.products = [...this.products, ...response.data];
-        this.pagination = response;
-        return response;
-      })
-    );
+    return this.http
+      .get<Pagination<Product[]>>(this.baseUrl + 'products', { params })
+      .pipe(
+        map((response) => {
+          this.productCache.set(
+            Object.values(this.shopParams).join('-'),
+            response
+          );
+          this.pagination = response;
+          return response;
+        })
+      );
   }
 
   setShopParams(params: ShopParams) {
-    this.shopParams = this.shopParams;
+    this.shopParams = params;
   }
 
   getShopParams() {
@@ -50,9 +70,12 @@ export class ShopService {
   }
 
   getProduct(id: number) {
-    const product = this.products.find(p => p.id == id);
+    const cachedProduct = this.findProductInCache(id);
 
-    if (product) return of(product);
+    if (cachedProduct) {
+      console.log(cachedProduct);
+      return of(cachedProduct);
+    }
 
     return this.http.get<Product>(this.baseUrl + 'products/' + id);
   }
@@ -61,7 +84,7 @@ export class ShopService {
     if (this.brands.length > 0) return of(this.brands);
 
     return this.http.get<Brand[]>(this.baseUrl + 'products/brands').pipe(
-      map(brands => {
+      map((brands) => {
         this.brands = brands;
         return brands;
       })
@@ -72,10 +95,20 @@ export class ShopService {
     if (this.types.length > 0) return of(this.types);
 
     return this.http.get<Type[]>(this.baseUrl + 'products/types').pipe(
-      map(types => {
+      map((types) => {
         this.types = types;
         return types;
       })
     );
+  }
+
+  private findProductInCache(id: number) {
+    for (const obj of this.productCache.values()) {
+      const product = obj.data.find(product => product.id === id);
+      if (product) {
+        return product;
+      }
+    }
+    return;
   }
 }

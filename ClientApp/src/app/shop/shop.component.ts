@@ -110,8 +110,8 @@ export class ShopComponent implements OnInit, AfterViewInit {
 
   onReset() {
     if (this.searchTerm) this.searchTerm.nativeElement.value = '';
-    const params = new ShopParams();
-    this.shopService.setShopParams(params);
+    this.shopParams = new ShopParams();
+    this.shopService.setShopParams(this.shopParams);
 
     this.getProducts();
   }

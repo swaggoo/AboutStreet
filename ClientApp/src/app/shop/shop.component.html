@@ -3,7 +3,7 @@
     <section class="col-3">
       <h5 class="ms-3">Sort</h5>
       <select class="form-select mb-4" (change)="onSortSelected($event)">
-        <option *ngFor="let sort of sortOptions" [value]="sort.value">
+        <option *ngFor="let sort of sortOptions" [value]="sort.value" [selected]="shopParams.sort === sort.value">
           {{ sort.name }}
         </option>
       </select>
@@ -41,9 +41,19 @@
           [pageSize]="shopParams.pageSize"
         ></app-paging-header>
         <div class="d-flex mt-2">
-          <input (keyup.enter)="onSearch()" type="text" placeholder="Search" class="form-control me-2" #search/>
-          <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
-          <button (click)="onReset()" class="btn btn-outline-secondary">Reset</button>
+          <input
+            (keyup.enter)="onSearch()"
+            type="text"
+            placeholder="Search"
+            class="form-control me-2"
+            #search
+          />
+          <button (click)="onSearch()" class="btn btn-outline-primary mx-2">
+            Search
+          </button>
+          <button (click)="onReset()" class="btn btn-outline-secondary">
+            Reset
+          </button>
         </div>
       </div>
       <div class="row row-cols-3 g-3 mb-5">
@@ -57,6 +67,7 @@
           [totalCount]="totalCount"
           [pageSize]="shopParams.pageSize"
           (pageChanged)="onPageChange($event)"
+          [pageNumber]="shopParams.pageNumber"
         ></app-pager>
       </div>
     </section>
