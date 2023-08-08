@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from './basket/basket.service';
 import { AccountService } from './account/account.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,9 @@ import { AccountService } from './account/account.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private basketService: BasketService, private accountService: AccountService) {}
+  constructor(private basketService: BasketService, private accountService: AccountService) {
+    console.log(environment.production); // Logs false for development environment
+  }
 
   ngOnInit(): void {
     this.loadBasket();
