@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DeliveryMethod } from '../shared/models/deliveryMethod';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { map } from 'rxjs';
 import { Order, OrderToCreate } from '../shared/models/order';
 

@@ -5,7 +5,7 @@ import { Pagination } from '../shared/models/pagination';
 import { Brand } from '../shared/models/brand';
 import { Type } from '../shared/models/type';
 import { ShopParams } from '../shared/models/shopParams';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { map, of } from 'rxjs';
 
 @Injectable({
