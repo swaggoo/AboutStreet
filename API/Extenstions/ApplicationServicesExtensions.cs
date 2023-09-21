@@ -1,5 +1,7 @@
 ﻿using API.Errors;
+using API.Wrappers;
 using Core.Interfaces;
+using Core.Interfaces.IWrappers;
 using Infrastructure.Data;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +24,8 @@ public static class ApplicationServicesExtensions
             var options = ConfigurationOptions.Parse(config.GetConnectionString("Redis"));
             return ConnectionMultiplexer.Connect(options);
         });
+        services.AddScoped<IUserManagerWrapper, UserManagerWrapper>();
+        services.AddScoped<ISignInManagerWrapper, SignInManagerWrapper>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IBasketRepository, BasketRepository>();
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
